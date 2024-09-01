@@ -1,15 +1,15 @@
 .weather {
-  width: 380px;
-  padding: 30px;
-  border-radius: 15px;
-  margin: 50px auto;
+  width: 350px;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 20px auto;
   text-align: center;
   transition: all 0.3s ease;
 }
 
 /* Sweden Theme */
 .weather.sweden {
-  background: linear-gradient(135deg, #005293, #FECC02);
+  background: linear-gradient(135deg, #005293, #fecc02);
   color: #ffffff;
   box-shadow: 0 0 20px rgba(0, 82, 147, 0.5);
 }
@@ -17,26 +17,28 @@
 .weather.sweden .search-bar input,
 .weather.sweden .search-bar select {
   background-color: rgba(255, 255, 255, 0.2);
-  color: #ffffff;
-  border: 2px solid #FECC02;
+  color: black;
+  border: 2px solid #fecc02;
+  padding: 5px;
+  width: 100px;
 }
 
 .weather.sweden .temperature {
-  font-size: 60px;
+  font-size: 35px;
   font-weight: 700;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.732);
 }
 
 .weather.sweden .location {
-  font-size: 30px;
+  font-size: 25px;
   font-weight: 500;
-  margin-top: -10px;
+  margin-top: 15px;
 }
 
-.weather.sweden .weather-icon {
+/* .weather.sweden .weather-icon {
   width: 120px;
   margin-top: 20px;
-}
+} */
 
 .weather.sweden .weather-data {
   display: flex;
@@ -52,20 +54,20 @@
   text-align: left;
 }
 
-.weather.sweden .col img {
+/* .weather.sweden .col img {
   width: 40px;
   margin-right: 10px;
-}
-
+} */
+/* 
 .weather.sweden .humidity,
 .weather.sweden .wind {
-  font-size: 24px;
-}
+  font-size: px;
+} */
 
 /* Rwanda Theme */
 .weather.rwanda {
-  background: linear-gradient(135deg, #00A1DE, #FAD201);
-  color: #000000;
+  background: linear-gradient(135deg, #00a1de, #fad201);
+  color: white;
   box-shadow: 0 0 20px rgba(0, 161, 222, 0.5);
 }
 
@@ -73,17 +75,17 @@
 .weather.rwanda .search-bar select {
   background-color: rgba(0, 0, 0, 0.1);
   color: #000000;
-  border: 2px solid #FAD201;
+  border: 2px solid #fad201;
 }
 
 .weather.rwanda .temperature {
-  font-size: 60px;
+  font-size: 35px;
   font-weight: 700;
-  text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.3);
+  text-shadow: 2px 2px 4px rgba(125, 118, 118, 0.3);
 }
 
 .weather.rwanda .location {
-  font-size: 30px;
+  font-size: 25px;
   font-weight: 500;
   margin-top: -10px;
 }
@@ -123,8 +125,8 @@
 }
 
 .country-selector button {
-  padding: 10px 20px;
-  margin: 0 10px;
+  padding: 8px 10px;
+  margin-right: 30px;
   font-size: 16px;
   cursor: pointer;
   border: none;
@@ -133,23 +135,25 @@
 }
 
 .weather.sweden .country-selector button {
-  background-color: #FECC02;
+  background-color: #fecc02;
   color: #005293;
+
 }
 
 .weather.sweden .country-selector button:hover {
   background-color: #005293;
-  color: #FECC02;
+  color: #fecc02;
 }
 
 .weather.rwanda .country-selector button {
-  background-color: #FAD201;
-  color: #00A1DE;
+  background-color: #fad201;
+  color: #00a1de;
+ 
 }
 
 .weather.rwanda .country-selector button:hover {
-  background-color: #00A1DE;
-  color: #FAD201;
+  background-color: #00a1de;
+  color: #fad201;
 }
 
 /* Search Bar Styles */
@@ -173,3 +177,5 @@
   cursor: pointer;
   margin-left: 10px;
 }
+
+

@@ -2,14 +2,28 @@
 
 
 
-* {
+body, html {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
+  font-family: Arial, sans-serif;
 }
-.App {
-  min-height: 100vh;
-  display: grid;
-  background: #e2d4ff;
+
+.app-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 20px;
+}
+
+.app-description {
+  max-width: 250px;
+  margin-right: 20px; /* Space between the description and the app */
+  background-color: #f9f9f9; /* Optional: Background color */
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Optional: Shadow for emphasis */
+}
+
+#root {
+  flex-grow: 1; /* Makes sure the app takes the remaining space */
 }

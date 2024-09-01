@@ -68,7 +68,7 @@ const Weather = () => {
         temperature: Math.floor(data.main.temp),
         location: data.name,
         icon: icon,
-        joke: getWeatherJoke(data.weather[0].icon), // Pass the icon to get the joke
+        joke: getWeatherJoke(data.weather[0].icon), 
       });
     } catch (error) {
       setWeatherData(false);
@@ -127,6 +127,7 @@ const Weather = () => {
           onClick={() => search(inputRef.current.value)}
         />
       </div>
+      
       {weatherData ? (
         <>
           <Lottie
@@ -134,15 +135,15 @@ const Weather = () => {
               ...defaultOptions,
               animationData: weatherData.icon.animationData,
             }}
-            height={300}
-            width={300}
+            height={200}
+            width={200}
           />
           <p className="temperature">{weatherData.temperature}°C</p>
           <p className="location">
             {weatherData.location}, {country}
           </p>
           <p className="weather-joke">{weatherData.joke}</p>{" "}
-          {/* Display the joke */}
+          {}
           <div className="weather-data">
             <div className="col">
               <Lottie
