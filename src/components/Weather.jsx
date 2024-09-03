@@ -10,11 +10,52 @@ import snow from "../assets/snow.json";
 import wind from "../assets/wind.json";
 import humidity from "../assets/humidity.json";
 
+
 const Weather = () => {
   const inputRef = useRef();
   const [weatherData, setWeatherData] = useState(false);
   const [country, setCountry] = useState("Sweden");
   const [theme, setTheme] = useState("sweden");
+  const [userPreferences, setUserPreferences] = useState(null);
+  const [userId, setUserId] = useState("defaultId");
+
+  const fetchUserPreferences = async (userId) => {
+    const response = await fetch(`/preferences/${userId}`);
+    const data = await response.json();
+    return data;
+  };
+
+  const updateUserPreferences = async (userId, preferences) => {
+    const response = await fetch(`/preferences/${userId}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(preferences),
+    });
+     if (!response.ok) {
+       console.error("Failed to update preferences:", response.statusText);
+     }
+    const data = await response.json();
+    return data;
+  };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const preferences = await fetchUserPreferences(userId);
+      setUserPreferences(preferences);
+    };
+    fetchData();
+  }, [userId]);
+
+  const handleThemeChange = async (newTheme) => {
+    const updatedPreferences = {
+      ...userPreferences,
+      selectedTheme: newTheme,
+    };
+    await updateUserPreferences(userId, updatedPreferences);
+    setUserPreferences(updatedPreferences);
+  };
 
   const allIcons = {
     "01d": { animationData: sunny },
@@ -68,7 +109,7 @@ const Weather = () => {
         temperature: Math.floor(data.main.temp),
         location: data.name,
         icon: icon,
-        joke: getWeatherJoke(data.weather[0].icon), 
+        joke: getWeatherJoke(data.weather[0].icon),
       });
     } catch (error) {
       setWeatherData(false);
@@ -127,7 +168,7 @@ const Weather = () => {
           onClick={() => search(inputRef.current.value)}
         />
       </div>
-      
+
       {weatherData ? (
         <>
           <Lottie
@@ -142,8 +183,7 @@ const Weather = () => {
           <p className="location">
             {weatherData.location}, {country}
           </p>
-          <p className="weather-joke">{weatherData.joke}</p>{" "}
-          {}
+          <p className="weather-joke">{weatherData.joke}</p> {}
           <div className="weather-data">
             <div className="col">
               <Lottie
@@ -175,5 +215,7 @@ const Weather = () => {
     </div>
   );
 };
+
+
 
 export default Weather;
